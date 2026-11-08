@@ -1,21 +1,21 @@
-# GitHub �ƶ�����ָ��
+# GitHub 云端配置指南
 
-## 1. �˺���ֿ�
+## 1. 账号与仓库
 
-����Ŀʹ�� [`www123yu/yu`](https://github.com/www123yu/yu)������֧Ϊ `main`���� Codex ��ѡ��ֿ�ʱ��ȷ�������� GitHub �˺�Ϊ `www123yu`��
+本项目使用 [`www123yu/yu`](https://github.com/www123yu/yu)，主分支为 `main`。在 Codex 中选择仓库时，确认所连接 GitHub 账号为 `www123yu`。
 
-���޷����زֿ⣬�Ⱥ˶������ӵ��û������ټ��� GitHub Ӧ���Ƿ��ñ��ֿ����Ȩ�ޡ���ҳ��¼״̬���ѱ����Ӧ����Ȩ�˺���Ҫ�ֱ�ȷ�ϡ�
+若无法加载仓库，先核对已连接的用户名，再检查该 GitHub 应用是否获得本仓库访问权限。网页登录状态与已保存的应用授权账号需要分别确认。
 
-## 2. ���ػ�ȡ���ύ
+## 2. 本地获取与提交
 
-��¡���вֿⲢ����Ŀ¼��
+克隆现有仓库并进入目录：
 
 ```bash
 git clone https://github.com/www123yu/yu.git
 cd yu
 ```
 
-��ȷ�� Git �������Լ����ύ���������䡣�� README ��װ Python ����������޸ĺ�ִ�м�飬���ύ�����ͣ�
+先确认 Git 已配置自己的提交姓名与邮箱。按 README 安装 Python 环境，完成修改后执行检查，再提交和推送：
 
 ```bash
 python -m pip check
@@ -27,23 +27,23 @@ git commit -m "Describe the research change"
 git push
 ```
 
-�״����Ͱ� Git �ĵ�¼��ʾ��� GitHub ��Ȩ���ύǰ��� `git status --short`��ȷ��û���˺�ƾ�ݡ�����֤��δ����Ȩ�����ݻ��������ҵģ�͡�
+首次推送按 Git 的登录提示完成 GitHub 授权。提交前检查 `git status --short`，确认没有账号凭据、许可证、未获授权的数据或第三方商业模型。
 
-## 3. �ƶ˿������Զ��������
+## 3. 云端开发与自动检查验收
 
-1. �ڲֿ�� `Code �� Codespaces` �´��� `main` ���ƶ˻�����`.devcontainer/devcontainer.json` �ᶨ�� Python ��������װ���裻�μ� [��������˵��](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)��
-2. ��װ���������ƶ��ն�ִ�� README ������������ȷ���˳����Ϊ 0�������ļ��޸ĺ��ؽ�����ʹ�޸���Ч��
-3. �� `Actions`��ȷ���״��ύ�����ļ��ͨ������ҳ��Ҫ������ Actions����ҳ����ʾ���ú󣬴Ӹù��������� `Run workflow`��
-4. �ύһ��ʵ��ģ�ͻ�����ű��������ж�Ӧ�Ŀ�����֤����ǰ������鲻�������κ���ҵ��������
-5. ���˻�ҳ��˶� Codespaces �� Actions ��������Ԥ�㣬����ʹ�ý�����ֹͣ������Ҫ�� Codespace������������ [Codespaces ���ٿ�ʼ](https://docs.github.com/en/codespaces/quickstart)��
+1. 在仓库的 `Code → Codespaces` 下创建 `main` 的云端环境。`.devcontainer/devcontainer.json` 会定义 Python 环境及安装步骤；参见 [开发容器说明](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)。
+2. 安装结束后，在云端终端执行 README 的三个检查命令，确认退出码均为 0。配置文件修改后，重建容器使修改生效。
+3. 打开 `Actions`，确认首次提交触发的检查通过。若页面要求启用 Actions，按页面提示启用后，从该工作流运行 `Run workflow`。
+4. 提交一份实际模型或分析脚本，再运行对应的科研验证。当前环境检查不会运行任何商业仿真器。
+5. 按账户页面核对 Codespaces 和 Actions 的用量与预算，并在使用结束后停止不再需要的 Codespace。创建方法见 [Codespaces 快速开始](https://docs.github.com/en/codespaces/quickstart)。
 
-���ؾ�̬���ͨ���������һ����ʵ�� Codespaces ������ Actions ���С�ֻ�����߾����պ󣬲ſɼ�Ϊ���ƶ�������ɡ���
+本地静态检查通过不能替代一次真实的 Codespaces 创建和 Actions 运行。只有两者均验收后，才可记为“云端配置完成”。
 
-## 4. ģ�͡����ļ�������
+## 4. 模型、大文件与数据
 
-`.slx` �ȶ�����ģ�Ͱ������ƹ����������ı��ϲ���Сģ�Ϳ���������⣻Ƶ���޸ĵĶ�����ģ�ͺʹ��ļ��ɰ���Ŀʵ��������� Git LFS��LFS ���Զ���װ����Ԥ������ƷѰ��ţ�GitHub ����ͨ�ļ��� LFS �ļ��в�ͬ�����ƣ�����ǰ���� [Git LFS ˵��](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage)��
+`.slx` 等二进制模型按二进制管理，不做文本合并。小模型可先正常入库；频繁修改的二进制模型和大文件可按项目实际情况启用 Git LFS。LFS 不自动安装、不预设配额或计费安排；GitHub 对普通文件及 LFS 文件有不同的限制，添加前查阅 [Git LFS 说明](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage)。
 
-����ȷ������ LFS ������������� `.slx` ģ�ͣ��Ȱ�װ Git LFS����ִ�У�
+若明确决定用 LFS 管理后续加入的 `.slx` 模型，先安装 Git LFS，再执行：
 
 ```bash
 git lfs install
@@ -51,22 +51,22 @@ git lfs track "*.slx"
 git add .gitattributes
 ```
 
-�ⲻ��Ǩ�ƾ���ʷ����ģ���ѽ��ֿ�����ҪǨ�ƣ�Ӧ���й滮Ǩ�ƺ�Э����ͬ����
+这不会迁移旧历史。若模型已进仓库且需要迁移，应另行规划迁移和协作者同步。
 
-��������Դ�ļ�����ʼ���Ͳ����ű�������Ϳ��������ɵĲ���ͨ�����ύ��ԭʼʵ�������봦�������ݷֿ���������λ������/�����汾������Ƶ�ʡ��������������衢��Դ��У��ֵ����Ҫ���������ݼ���ʹ����ʽ���ݴ洢���񣬲��ڲֿ��¼ DOI ���ȶ����ӡ�
+保留仿真源文件、初始化和参数脚本；缓存和可重新生成的波形通常不提交。原始实验数据与处理后数据分开，保留单位、仪器/软件版本、采样频率、工况、处理步骤、来源及校验值。需要发布的数据集可使用正式数据存储服务，并在仓库记录 DOI 或稳定链接。
 
-��ʽ�о����к󣬿ɱ������� Python ���嵥��
+正式研究运行后，可保存完整 Python 包清单：
 
 ```bash
 python -m pip freeze > results/python-environment.txt
 ```
 
-����һ������ϵͳ��Python �汾�� Git �ύ ID�����嵥���ʵ�ʲ���ϵͳ������ŵ��ƽ̨�����ƻ���һ�¡�
+与结果一起另存系统、Python 版本和 Git 提交 ID；该清单针对实际操作系统，不承诺跨平台二进制环境一致。
 
-## 5. ��ҵ�������ĺ�������
+## 5. 商业仿真器的后续配置
 
-MATLAB / Simulink��PLECS��LTspice �ڱ�ģ�����ṩ�ļ������ṹ������û����Ϊ������ GitHub �ֿ���Զ�����ƶ˰�װ������֤��ִ��������
+MATLAB / Simulink、PLECS、LTspice 在本模板中提供文件管理结构。它们没有因为存在于 GitHub 仓库就自动获得云端安装、许可证或执行能力。
 
-��Ҫ MATLAB / Simulink �Զ���ʱ���ɽ�һ��ѡ�� [MathWorks �� GitHub Actions ����](https://www.mathworks.com/help/matlab/matlab_external/use-matlab-with-github-actions.html)���ٰ����ò�Ʒ���ֿ�ɼ��ԡ�֧�ַ�Χ������֤���á�PLECS / LTspice ����������ð汾ȷ�ϰ�װ���������ӿڣ�Ҳ����ѡ���Ѱ�װ����ʹ��Ȩ�޵����й���������
+需要 MATLAB / Simulink 自动化时，可进一步选用 [MathWorks 的 GitHub Actions 集成](https://www.mathworks.com/help/matlab/matlab_external/use-matlab-with-github-actions.html)，再按所用产品、仓库可见性、支持范围和许可证配置。PLECS / LTspice 则需针对所用版本确认安装与批处理接口；也可以选择已安装并有使用权限的自托管运行器。
 
-�������ӷ��湤����ʱ����ȷ��¼ִ�������汾�����ɷ�ʽ��ģ�����롢������á�Ԥ��ָ�����ݲ��Ҫ��ȱ�ٷ�����������֤������£��Ѵ�������ʾ���������������������֤��
+后续添加仿真工作流时，明确记录执行软件版本、许可方式、模型输入、求解配置、预期指标与容差。不要在缺少仿真器或许可证的情况下，把代数检查或示例输出描述成完整仿真验证。

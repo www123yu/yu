@@ -1,12 +1,12 @@
-# yu �� �������ӿ��й�����
+# yu · 电力电子科研工作区
 
-����任��������������ƻ�·��ʵ�����ݷ����Ŀ��вֿ���㡣Python 3.12 ����������ֵ���㡢���Ʒ����������Ƶ������ݴ�����ģ��Դ�ļ������������ֱ������
+面向变换器、逆变器、控制环路及实验数据分析的科研仓库起点。Python 3.12 环境用于数值计算、控制分析、符号推导及数据处理；模型源文件按仿真软件分别管理。
 
-GitHub �ֿ⣺[`www123yu/yu`](https://github.com/www123yu/yu)��
+GitHub 仓库：[`www123yu/yu`](https://github.com/www123yu/yu)。
 
-## ��ʼʹ��
+## 开始使用
 
-�ֿ��ϴ� GitHub �󣬴� `Code �� Codespaces �� Create codespace on main`�����������ᰲװ���������ͼ�鹤�ߡ��ն˿��ú����У�
+仓库上传 GitHub 后，打开 `Code → Codespaces → Create codespace on main`。开发容器会安装科研依赖和检查工具。终端可用后运行：
 
 ```bash
 python -m pip check
@@ -14,44 +14,44 @@ python -m ruff check .
 python examples/check_environment.py
 ```
 
-����������֤��װ������ Buck �Ĵ�����ϵ�����������ؼ����桢�����ȶ�����֤��ʵ�������ƶ˻��������״�ʵ�ʴ�����֤��
+环境检查仅验证安装及理想 Buck 的代数关系，不代表开关级仿真、控制稳定性验证或实验结果。云端环境尚需首次实际创建验证。
 
-���� Notebook�����ն˰�װ��ѡ������
+如需 Notebook，在终端安装可选依赖：
 
 ```bash
 python -m pip install -r requirements-notebooks.txt
 ```
 
-����ʹ��ʱ���Ȱ�װ Python 3.12���������������⻷�����ٰ�װ `requirements-dev.txt`���������Windows PowerShell Ϊ `.\.venv\Scripts\Activate.ps1`��Linux/macOS Ϊ `source .venv/bin/activate`��
+本地使用时，先安装 Python 3.12，创建并激活虚拟环境，再安装 `requirements-dev.txt`。激活命令：Windows PowerShell 为 `.\.venv\Scripts\Activate.ps1`，Linux/macOS 为 `source .venv/bin/activate`。
 
 ```bash
 python -m venv .venv
-# �������⻷����ִ����������
+# 激活虚拟环境后执行以下命令
 python -m pip install -r requirements-dev.txt
 ```
 
-## �ļ���������
+## 文件放在哪里
 
-| ·�� | ���� |
+| 路径 | 内容 |
 | --- | --- |
-| `models/simulink/` | MATLAB / Simulink / Simscape ģ����ű� |
-| `models/plecs/` | PLECS ģ�͡���ʼ���Ͳ����ű� |
-| `models/ltspice/` | LTspice ԭ��ͼ����������������ģ�� |
-| `examples/` | С�Ϳ�����ʾ���뻷����� |
-| `data/` | ԭʼ�����������ݣ���Ŀ¼˵�� |
-| `results/` | ���Ρ�ͼ����ָ������в����Ŀ¼˵�� |
-| `docs/` | ���á��������о�˵�� |
+| `models/simulink/` | MATLAB / Simulink / Simscape 模型与脚本 |
+| `models/plecs/` | PLECS 模型、初始化和参数脚本 |
+| `models/ltspice/` | LTspice 原理图、网表和自有器件模型 |
+| `examples/` | 小型可运行示例与环境检查 |
+| `data/` | 原始及处理后数据，见目录说明 |
+| `results/` | 波形、图表、指标等运行产物，见目录说明 |
+| `docs/` | 配置、复现与研究说明 |
 
-�ύģ��ʱͬʱ��¼�����汾�����������䡢���ˡ������뵥λ�����ƺͲ������ڡ���������á����в��輰�оݡ��ο����Ӧע����Դ���������Ӧ�ύ��
+提交模型时同时记录软件版本、依赖工具箱、拓扑、参数与单位、控制和采样周期、求解器设置、运行步骤及判据。参考结果应注明来源、工况与对应提交。
 
-## �Զ����
+## 自动检查
 
-`.github/workflows/checks.yml` �ṩ����һ���ԡ�Python ��̬���ͻ���ʾ����顣���ͨ��ֻ˵����Щ��Ŀͨ������ҵ��������Ӳ��ʵ�����赥�����С���¼�ͺ��顣
+`.github/workflows/checks.yml` 提供依赖一致性、Python 静态检查和环境示例检查。检查通过只说明这些项目通过；商业仿真器和硬件实验仍需单独运行、记录和核验。
 
-��������Ĭ��δ��װ MATLAB��Simulink��PLECS �� LTspice����Ҫ�Զ�������Щ���������һ��ȷ�ϲ���ϵͳ֧�֡���װ��ʽ������֤�Լ��ʺϵ��йܻ����й���������
+开发容器默认未安装 MATLAB、Simulink、PLECS 或 LTspice。若要自动运行这些软件，需进一步确认操作系统支持、安装方式、许可证以及适合的托管或自托管运行器。
 
-## �����븴��
+## 配置与复现
 
-�״��ϴ���Codespaces ���ա�Git LFS ����ҵ������˵���� [GitHub �ƶ�����ָ��](docs/cloud-setup.md)���� Codex ��ʹ�òֿ�� [Codex �ƶ˻�������](docs/codex-cloud-setup.md)����Ŀ¼�����ļ��̶�ֱ�������汾��������ʽ�о�ʱ��������ʵ�����л��������������嵥������¼ģ�͡����ݺʹ���汾��
+首次上传、Codespaces 验收、Git LFS 和商业仿真器说明见 [GitHub 云端配置指南](docs/cloud-setup.md)。在 Codex 中使用仓库见 [Codex 云端环境配置](docs/codex-cloud-setup.md)。根目录依赖文件固定直接依赖版本；进行正式研究时，另保存实际运行环境的完整依赖清单，并记录模型、数据和代码版本。
 
-��ģ��δ��ѡ�о��ɹ��Ŀ�������֤������Դ���롢���ĸ��������ݼ�ǰ�������߰�ʵ��Ȩ��ѡ������֤��ע����������Դ��
+本模板未代选研究成果的开放许可证。发布源代码、论文附件或数据集前，由作者按实际权属选择许可证并注明第三方来源。

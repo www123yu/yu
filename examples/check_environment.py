@@ -1,4 +1,4 @@
-"""��� Python �������������� Buck ֱ����ϵ����ִ�п��ط��档"""
+"""检查 Python 科研依赖与理想 Buck 直流关系；不执行开关仿真。"""
 
 from importlib import import_module, metadata
 from math import isclose
