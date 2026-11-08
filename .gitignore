@@ -1,0 +1,48 @@
+# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.lic
+.DS_Store
+Thumbs.db
+
+# MATLAB / Simulink cache and autosave (keep .m, .mlx, .slx, .mdl)
+slprj/
+*_ert_rtw/
+*_grt_rtw/
+*.slxc
+*.asv
+*.autosave
+*.slx.autosave
+*.mdl.autosave
+
+# LTspice generated waveforms and logs (keep .asc, .cir, .net, .lib, .sub)
+*.raw
+*.log
+*.op.raw
+*.fft
+
+# Store generated PLECS results under results/; keep source .plecs files.
+# Original measurements and generated output require deliberate inclusion.
+data/raw/**
+data/processed/**
+results/**
+!results/README.md
+
+# Local IDE settings
+.idea/
+.vscode/

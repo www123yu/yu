@@ -1,0 +1,7 @@
+# Direct dependencies, verified on 2026-11-08. Not a full transitive lockfile.
+numpy==2.5.4
+scipy==1.18.1
+matplotlib==3.11.2
+pandas==3.1.1
+sympy==1.14.0
+control==0.10.2
